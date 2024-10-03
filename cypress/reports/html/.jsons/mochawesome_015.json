@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-02T09:15:21.965Z",
+    "end": "2024-10-02T09:15:26.755Z",
+    "duration": 4790,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4f9bbf1c-315a-4ab1-ad33-397d6dfdbf45",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test3.js",
+      "file": "cypress\\integration\\examples\\Test3.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4e3dd724-8b1c-472f-ba81-055dd82c8b33",
+          "title": "My First Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My First Test Case",
+              "fullTitle": "My First Test Suite My First Test Case",
+              "timedOut": null,
+              "duration": 3297,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/AutomationPractice/');\n// Check Boxes\n// \".check()\" is used for checking the unchecked box\n// performing for single check box\ncy.get('#checkBoxOption1').check().should('be.checked').and('have.value', 'option1');\ncy.get('#checkBoxOption1').uncheck().should('not.be.checked');\n// Selecting multiple check boxes at once\ncy.get('input[type=\"checkbox\"]').check(['option1', 'option3']);\n//Static Drop-Downs\ncy.get('select').select('option2').should('have.value', 'option2');\n// Dynamic Drop-Down or autocomplete\ncy.get('#autocomplete').type('ind');\ncy.get('.ui-menu-item div').each(($el, index, $list) => {\n  if ($el.text() === 'India') {\n    $el.click();\n  }\n});\ncy.get('#autocomplete').should('have.value', 'India');\n// Hidden or visible elements\ncy.get('#displayed-text').should('be.visible');\ncy.get('#hide-textbox').click();\ncy.get('#displayed-text').should('not.be.visible');\ncy.get('#show-textbox').click();\ncy.get('#displayed-text').should('be.visible');\n// Radio Button\ncy.get('[value=\"radio2\"]').click();\n// Alerts\ncy.get('#name').type('Sid');\ncy.get('#alertbtn').click();\ncy.on('window:alert', str => {\n  // this is a part of Mocha framework\n  expect(str).to.be.equal('Hello Sid, share this practice page and share your knowledge');\n});",
+              "err": {},
+              "uuid": "03ff5cc4-a108-4360-b353-0056e960419f",
+              "parentUUID": "4e3dd724-8b1c-472f-ba81-055dd82c8b33",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "03ff5cc4-a108-4360-b353-0056e960419f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3297,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

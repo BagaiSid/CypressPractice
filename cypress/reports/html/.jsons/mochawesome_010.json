@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-02T09:00:13.728Z",
+    "end": "2024-10-02T09:00:14.227Z",
+    "duration": 499,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8d0a51a7-013c-46fb-be70-d2ba2d54c1e4",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test_Framework.js",
+      "file": "cypress\\integration\\examples\\Test_Framework.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "14cd016f-e347-45f0-aceb-31eccf93077b",
+          "title": "Shopping Site",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Framework Hooks",
+              "fullTitle": "Shopping Site Framework Hooks",
+              "timedOut": null,
+              "duration": 102,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Test_Framework.js\\\\Shopping Site -- Framework Hooks (failed).png\"\n    ],\n    [\n      \"\\\\Test_Framework.js\\\\Shopping Site -- Framework Hooks (failed) (attempt 2).png\"\n    ],\n    [\n      \"\\\\Test_Framework.js\\\\Shopping Site -- Framework Hooks (failed) (attempt 3).png\"\n    ],\n    [\n      \"\\\\Test_Framework.js\\\\Shopping Site -- Framework Hooks (failed) (attempt 4).png\"\n    ]\n  ]\n}",
+              "code": "const homePg = new _HomePage.default();\ncy.visit(Cypress.env(\"testUrl\") + this.data.endPoint);\nhomePg.getEditBox().type(this.data.name);\nhomePg.getGender().select(this.data.gender);\nhomePg.getTwoWayDataBinding().should(\"have.value\", this.data.name);\nhomePg.getMinimumLength().should(\"have.attr\", \"minlength\", 2);\n// cy.debug();\nhomePg.getRadioButton().should(\"be.disabled\");\nhomePg.getShopURL().click();\n// cy.wait(1000);\nthis.data.productName;\nthis.data.productName.forEach(function (element) {\n  cy.selectProd(element);\n});\nconst shopPg = new ShopPage();\nshopPg.buttonCheckOut().click();\n// A Command is created for the totalSum function\ncy.totalSum();\ncy.totalPrice();\nthis.data.actualText;\nshopPg.buttonSuccess().click();\nshopPg.country().type(this.data.country);\nshopPg.countrySuggestion().click();\nshopPg.checkBox().click({\n  force: true\n});\nshopPg.buttonSubmit().click();\nshopPg.alertText().then(function (element) {\n  const actualText = element.text();\n  expect(actualText.includes(\"Success\")).to.be.true;\n});",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'endPoint')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'endPoint')\n    at Context.eval (webpack://cypress/./cypress/integration/examples/Test_Framework.js:16:48)",
+                "diff": null
+              },
+              "uuid": "69fc2f6e-c63d-4700-af07-8e843c047e29",
+              "parentUUID": "14cd016f-e347-45f0-aceb-31eccf93077b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "69fc2f6e-c63d-4700-af07-8e843c047e29"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 102,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-02T09:00:15.754Z",
+    "end": "2024-10-02T09:00:18.334Z",
+    "duration": 2580,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "92dbad3d-13eb-4b41-8348-cc95d3a69f7d",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\calendar.js",
+      "file": "cypress\\integration\\examples\\calendar.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bd854959-4590-4dab-b281-0e20cbf56954",
+          "title": "Calendar test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Selecting date via calendar",
+              "fullTitle": "Calendar test Selecting date via calendar",
+              "timedOut": null,
+              "duration": 1539,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const month = '9';\nconst date = '15';\nconst year = '2024';\nconst expectedDate = [month, date, year];\ncy.visit('https://rahulshettyacademy.com/seleniumPractise/#/offers');\ncy.get('.react-date-picker__inputGroup').click();\ncy.get('.react-calendar__navigation__label').click();\ncy.get('.react-calendar__navigation__label').click();\ncy.contains('button', year).click();\ncy.get('.react-calendar__year-view__months__month').eq(Number(month) - 1).click();\ncy.contains('abbr', date).click();\n// Assertion\ncy.get('.react-date-picker__inputGroup__input').each(($el, index) => {\n  cy.wrap($el).invoke('val').should('eq', expectedDate[index]);\n});",
+              "err": {},
+              "uuid": "6de9cbf5-7331-4430-995a-622ed87965cc",
+              "parentUUID": "bd854959-4590-4dab-b281-0e20cbf56954",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6de9cbf5-7331-4430-995a-622ed87965cc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1539,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

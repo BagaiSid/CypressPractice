@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-02T09:15:11.934Z",
+    "end": "2024-10-02T09:15:15.622Z",
+    "duration": 3688,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cc52edbe-a528-4ddb-9714-04c80ffcfae5",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test02.js",
+      "file": "cypress\\integration\\examples\\Test02.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5e165d44-5874-4618-a648-7ddf5aa2ebd9",
+          "title": "My First Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My First Test Case",
+              "fullTitle": "My First Test Suite My First Test Case",
+              "timedOut": null,
+              "duration": 2246,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/');\ncy.get('.search-keyword').type('be');\n// cy.wait(4000);\ncy.get('.products').as('productLocator');\nconsole.log('Printing the example of console logging');\n// cy.get('.products').find('.product').eq(4).contains('ADD TO CART').click();\ncy.get('@productLocator').find('.product').each(($el, index, $list) => {\n  const textItem = $el.find('h4.product-name').text();\n  if (textItem.includes('Stra')) {\n    cy.wrap($el).find('button').click();\n  }\n});\n// assert if log is correctly displayed\ncy.get('.brand').should('have.text', 'GREENKART');\n// This is to print in logs\ncy.get('.brand').then(function (logoElement) {\n  cy.log(logoElement.text());\n});\n// clicking on cart icon\ncy.get('.cart-icon').as('cartButton');\ncy.get('@cartButton').click();\ncy.contains('PROCEED TO CHECKOUT').click();\ncy.contains('Place Order').click();\ncy.get('select').select('India');\ncy.get('select').should('have.value', 'India');",
+              "err": {},
+              "uuid": "c0ee5920-87cd-4997-9ca7-8a4e945ed529",
+              "parentUUID": "5e165d44-5874-4618-a648-7ddf5aa2ebd9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c0ee5920-87cd-4997-9ca7-8a4e945ed529"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2246,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

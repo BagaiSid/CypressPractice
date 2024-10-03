@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-02T08:59:11.489Z",
+    "end": "2024-10-02T08:59:20.983Z",
+    "duration": 9494,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa39ecc3-2d17-4495-bff7-11ce1cd46c43",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\FrameworkTest.js",
+      "file": "cypress\\integration\\examples\\FrameworkTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2165f0f5-9ded-4f83-8331-782e49dcf025",
+          "title": "Shopping Site",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Framework Hooks",
+              "fullTitle": "Shopping Site Framework Hooks",
+              "timedOut": null,
+              "duration": 7977,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePg = new _HomePage.default();\ncy.visit(Cypress.env('url') + '/angularpractice/');\nhomePg.getEditBox().type(this.data.name);\nhomePg.getGender().select(this.data.gender);\nhomePg.getTwoWayDataBinding().should('have.value', this.data.name);\nhomePg.getMinimumLength().should('have.attr', 'minlength', 2);\n// cy.debug();\nhomePg.getRadioButton().should('be.disabled');\nhomePg.getShopURL().click();\n// cy.wait(1000);\nthis.data.productName;\nthis.data.productName.forEach(function (element) {\n  cy.selectProd(element);\n});\nconst shopPg = new _ShopPage.default();\nshopPg.buttonCheckOut().click();\n// A Command is created for the totalSum function\ncy.totalSum();\ncy.totalPrice();\nthis.data.actualText;\nshopPg.buttonSuccess().click();\nshopPg.country().type(this.data.country);\nshopPg.countrySuggestion().click();\nshopPg.checkBox().click({\n  force: true\n});\nshopPg.buttonSubmit().click();\nshopPg.alertText().then(function (element) {\n  const actualText = element.text();\n  expect(actualText.includes('Success')).to.be.true;\n});",
+              "err": {},
+              "uuid": "0a15d333-b0a1-4a48-873b-3be11c197b36",
+              "parentUUID": "2165f0f5-9ded-4f83-8331-782e49dcf025",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0a15d333-b0a1-4a48-873b-3be11c197b36"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7977,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

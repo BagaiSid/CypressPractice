@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-02T08:59:44.623Z",
+    "end": "2024-10-02T08:59:50.856Z",
+    "duration": 6233,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4c7c610b-35ec-45b1-9229-b5f8fe380667",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test5.js",
+      "file": "cypress\\integration\\examples\\Test5.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cda324c4-a4d8-41b4-bc3f-7257ba4d486b",
+          "title": "Handling Child Windows",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should handle child window",
+              "fullTitle": "Handling Child Windows Should handle child window",
+              "timedOut": null,
+              "duration": 867,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Test5.js\\\\Handling Child Windows -- Should handle child window (failed).png\"\n    ],\n    [\n      \"\\\\Test5.js\\\\Handling Child Windows -- Should handle child window (failed) (attempt 2).png\"\n    ],\n    [\n      \"\\\\Test5.js\\\\Handling Child Windows -- Should handle child window (failed) (attempt 3).png\"\n    ],\n    [\n      \"\\\\Test5.js\\\\Handling Child Windows -- Should handle child window (failed) (attempt 4).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/');\ncy.get('.blinkingText').invoke('removeAttr', 'target').click();\n// cy.wait(2000);\ncy.get('.dropdown-menu').select('more:visible').should('have.value', 'About');\ncy.get('.dropdown-menu:visible').should('have.length', 5);\n// a[href*='about-my-mission']\").click();",
+              "err": {
+                "message": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<ul class=\"dropdown-menu\">...</ul>`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<ul class=\"dropdown-menu\">...</ul>`\n\nhttps://on.cypress.io/select\n    at Context.select (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:114125:70)\n    at wrapped (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:138145:19)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress/./cypress/integration/examples/Test5.js:8:7)",
+                "diff": null
+              },
+              "uuid": "8c135bd6-1d04-4ab2-9988-d3cd656ff661",
+              "parentUUID": "cda324c4-a4d8-41b4-bc3f-7257ba4d486b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8c135bd6-1d04-4ab2-9988-d3cd656ff661"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 867,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
