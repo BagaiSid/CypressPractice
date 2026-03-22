@@ -1,0 +1,107 @@
+{
+  "baseUrl": "http://localhost:4000",
+  "credentials": {
+    "username": "Admin",
+    "password": "Password"
+  },
+  "pages": {
+    "dashboard": { "path": "/index.html", "title": "HR Dashboard" },
+    "hiring": { "path": "/hiring.html", "title": "Employee Hiring - HR Dashboard" },
+    "calendar": { "path": "/calendar.html", "title": "Calendar & Attendance - HR Dashboard" },
+    "employees": { "path": "/employees.html", "title": "Employee Management - HR Dashboard" },
+    "interviews": { "path": "/interviews.html", "title": "Interview Management - HR Dashboard" },
+    "leave": { "path": "/leave.html", "title": "Leave Management - HR Dashboard" },
+    "performance": { "path": "/performance.html", "title": "Performance Management - HR Dashboard" },
+    "documents": { "path": "/documents.html", "title": "Document Management - HR Dashboard" },
+    "terminations": { "path": "/terminations-management.html", "title": "Employee Termination Management" },
+    "hierarchy": { "path": "/hierarchy.html", "title": "Organization Hierarchy" }
+  },
+  "navLinks": [
+    { "text": "Dashboard", "href": "/index.html" },
+    { "text": "Employee Hiring", "href": "/hiring.html" },
+    { "text": "Calendar & Attendance", "href": "/calendar.html" },
+    { "text": "Employees", "href": "/employees.html" },
+    { "text": "Interviews", "href": "/interviews.html" },
+    { "text": "Leave Management", "href": "/leave.html" },
+    { "text": "Performance", "href": "/performance.html" },
+    { "text": "Documents", "href": "/documents.html" },
+    { "text": "Terminations", "href": "/terminations-management.html" },
+    { "text": "Hierarchy", "href": "/hierarchy.html" }
+  ],
+  "dashboardStats": {
+    "headCount": "Head Count",
+    "hired": "Hired",
+    "openPositions": "Open Positions",
+    "terminations": "Terminations",
+    "applicants": "Applicants"
+  },
+  "dashboardBands": ["Demographics", "Hired", "Open Positions", "Terminations", "Applicants"],
+  "dashboardCharts": {
+    "employeeByOrg": "Employee by Organization",
+    "terminationByOrg": "Termination by Organization"
+  },
+  "hiringStats": {
+    "totalJobs": "Total Job Postings",
+    "openPositions": "Open Positions",
+    "activeCandidates": "Active Candidates",
+    "totalHired": "Total Hired"
+  },
+  "sampleJob": {
+    "title": "QA Engineer",
+    "department": "Engineering",
+    "type": "Full-time",
+    "location": "Remote",
+    "salary": "$80,000 - $100,000",
+    "description": "Responsible for quality assurance and test automation."
+  },
+  "sampleCandidate": {
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "555-0123",
+    "experience": "5"
+  },
+  "employeeStats": {
+    "totalEmployees": "Total Employees",
+    "active": "Active",
+    "onLeave": "On Leave",
+    "avgSalary": "Avg Salary"
+  },
+  "interviewStats": {
+    "total": "Total Interviews",
+    "scheduled": "Scheduled",
+    "completed": "Completed",
+    "declined": "Declined",
+    "thisWeek": "This Week"
+  },
+  "leaveStats": {
+    "totalRequests": "Total Requests",
+    "pending": "Pending",
+    "approved": "Approved",
+    "thisMonth": "This Month"
+  },
+  "leaveTabs": ["Leave Requests", "Leave History", "Leave Balances", "Leave Policies"],
+  "performanceTabs": ["Performance Reviews", "Goals", "Ratings"],
+  "performanceStats": {
+    "totalReviews": "Total Reviews",
+    "thisQuarter": "This Quarter",
+    "avgRating": "Average Rating",
+    "pending": "Pending"
+  },
+  "documentStats": {
+    "totalDocuments": "Total Documents",
+    "contracts": "Contracts",
+    "policies": "Policies",
+    "certificates": "Certificates"
+  },
+  "documentFilters": ["All", "Contracts", "Policies", "Certificates", "Other"],
+  "terminationStats": {
+    "total": "Total Terminations",
+    "fullTime": "Full Time",
+    "partTime": "Part Time"
+  },
+  "hierarchySections": ["My Reporting Chain", "My Peers", "Full Organization Tree"],
+  "sqlInjection": "' OR 1=1 --",
+  "xssPayload": "<script>alert('xss')</script>",
+  "longString": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "specialChars": "!@#$%^&*()_+-=[]{}|;':\",./<>?"
+}

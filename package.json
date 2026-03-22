@@ -7,15 +7,24 @@
     "headtest": "npx cypress run --headed",
     "chromeTest": "npx cypress run --headed chrome",
     "recordDashBoardTest": "npx cypress run --record --key 9d8b8629-334e-4eaf-ad82-8e80e5af718b",
-    "framework": "npx cypress run --spec \"cypress/integration/framework/*\""
+    "framework": "npx cypress run --spec \"cypress/integration/framework/*\"",
+    "mobile": "npx cypress run --spec \"cypress/integration/examples/HRDashboardMobile.js\"",
+    "mobile:open": "npx cypress open",
+    "mobile:env": "./scripts/start-mobile-env.sh",
+    "mobile:env:open": "./scripts/start-mobile-env.sh --open",
+    "web": "npx cypress run --spec \"cypress/integration/examples/HRDashboardWeb.js\"",
+    "web:open": "npx cypress open --e2e --spec \"cypress/integration/examples/HRDashboardWeb.js\"",
+    "web:chrome": "npx cypress run --browser chrome --spec \"cypress/integration/examples/HRDashboardWeb.js\""
   },
   "author": "Sid",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^13.15.0",
+    "cypress": "^15.12.0",
     "cypress-iframe": "^1.0.1",
-    "cypress-mochawesome-reporter": "^3.8.2"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^17.3.1",
+    "xlsx": "^0.18.5"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^21.0.0",

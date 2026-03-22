@@ -1,68 +1,56 @@
 // ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
+// Custom Cypress Commands
 //
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
 
-// import cypress from 'cypress';
+// Appium mobile commands are defined in appiumCommands.js
+// and imported via e2e.js support file.
 
-import shopPage from "./pageObjects/ShopPage";
+// ── Secure fixture: loads & decrypts encrypted credentials ──
+Cypress.Commands.add("secureFixture", (fixtureName) => {
+  return cy.task("decryptFixture", { fixtureName });
+});
 
-// import shopPage from "../integration/support/pageObjects/shopPage";
-
-const shopPg = new shopPage();
-Cypress.Commands.add("selectProd", (prodName) => {
-  shopPg.productName().each(($el, index, $list) => {
-    if ($el.text().includes(prodName)) {
-      shopPg.addBtn().eq(index).click();
+// ── Web: Login via API and cache session ─────────────
+Cypress.Commands.add("login", (username, password) => {
+  cy.session(
+    [username, password],
+    () => {
+      cy.request({
+        method: "POST",
+        url: "/api/login",
+        body: { username, password },
+      }).then((resp) => {
+        const { token, refreshToken, user, isAdmin } = resp.body;
+        window.sessionStorage.setItem("token", token);
+        window.sessionStorage.setItem("refreshToken", refreshToken);
+        window.sessionStorage.setItem("user", JSON.stringify(user));
+        window.sessionStorage.setItem("username", user.username);
+        window.sessionStorage.setItem("isAdmin", isAdmin ? "true" : "false");
+        window.sessionStorage.setItem("designation", user.designation || "");
+      });
+    },
+    {
+      cacheAcrossSpecs: true,
     }
-  });
+  );
 });
 
-var sum = 0;
-
-Cypress.Commands.add("totalSum", (price) => {
-  shopPg
-    .productPrice()
-    .each(($el, index, $list) => {
-      const amount = $el.text();
-      var res = amount.split(" ");
-      res = res[1].trim();
-      sum = Number(sum) + Number(res);
-      cy.log(res);
-      console.log($el.text());
-    })
-    .then(function () {
-      cy.log(sum);
-      console.log(sum);
-    });
+// ── Web: Navigate to a specific page ────────────────
+Cypress.Commands.add("visitPage", (pagePath) => {
+  cy.visit(pagePath);
 });
 
-Cypress.Commands.add("totalPrice", (totalPrice) => {
-  shopPg.totalprice().then(function (element) {
-    const amount = element.text();
-    var res = amount.split(" ");
-    var total = res[1].trim();
-    expect(Number(total)).to.equal(Number(sum));
-  });
+// ── Web: Assert navigation bar is visible ───────────
+Cypress.Commands.add("assertNavBarVisible", () => {
+  cy.get("nav.nav-bar").should("be.visible");
+  cy.get("nav.nav-bar a").should("have.length.gte", 10);
 });
 
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// ── Web: Tab key (requires cypress-plugin-tab or native) ──
+Cypress.Commands.add("tab", { prevSubject: "element" }, (subject) => {
+  cy.wrap(subject).trigger("keydown", { keyCode: 9, which: 9, key: "Tab" });
+});

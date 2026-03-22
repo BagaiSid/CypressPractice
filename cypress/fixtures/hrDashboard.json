@@ -1,0 +1,11 @@
+{
+  "appPackage": "com.hrdashboardapp",
+  "appActivity": ".MainActivity",
+  "deviceName": "emulator-5554",
+  "platformName": "Android",
+  "automationName": "UiAutomator2",
+  "validUsername": "enc:db8f1f13dd8d17b86d95271a:bb3e2433fa349d49d67d8200584bd78e:2639079989",
+  "validPassword": "enc:b955394a5b5718dc5d092f21:9c4fd3bf543106c541f0ccae7085f73c:b9549be63feebc87",
+  "invalidUsername": "enc:bdadef250a8b5df926375280:15455166748bcd5e7512410f820674c5:860b5436951d013ec3",
+  "invalidPassword": "enc:5972e5f68e6321b971af6d0d:7fcec73dba06b3364a5f79eae8beca9f:d67ed0f4fc2bec67cc"
+}
